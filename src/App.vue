@@ -19,9 +19,9 @@ export default {
   },
   methods: {
     onScroll(event) {
-      console.log(event.target)
-      let container = event.target
-      this.scrollPosition = container.scrollTop
+      console.log(1);
+      let container = event.target;
+      this.scrollPosition = container.scrollTop;
     }
   }
 }
@@ -40,15 +40,19 @@ export default {
 body {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   padding: 0;
-  margin: 0;
   position: relative;
   font-family: Roboto,sans-serif;
+  box-sizing: border-box;
 }
 
 .container {
   height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  flex: 1;
 }
 </style>

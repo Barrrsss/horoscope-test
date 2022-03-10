@@ -1,17 +1,30 @@
 <template>
-  <HeaderApp></HeaderApp>
-  <h1>1</h1>
-  <FooterApp></FooterApp>
+  <HeaderApp />
+  <BannerApp />
+  <TextApp />
+  <FormApp />
+  <ButtonNext />
+  <FooterApp />
 </template>
 
 <script>
-import FooterApp from './footer-app.vue'
 import HeaderApp from './header-app.vue'
+import BannerApp from './banner-app.vue'
+import TextApp from './text-app.vue'
+import FormApp from './form-app.vue'
+import ButtonNext from './button-next'
+import FooterApp from './footer-app.vue'
+
 export default {
   name: "MainApp",
   components: {
-    FooterApp,
-    HeaderApp
+    HeaderApp,
+    BannerApp,
+    TextApp,
+    FormApp,
+    ButtonNext,
+    FooterApp
+
   }
 }
 </script>
