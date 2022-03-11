@@ -13,11 +13,14 @@
         <label :class="{ 'checked': isChecked('Two') }" class="form__label" for="2">Мужчина</label>
       </div>
     </form>
-
   </section>
+  <button @click="$router.push('two')" class="button__next" type="submit" v-show="picked">
+    Далее
+  </button>
 </template>
 
 <script>
+
 export default {
   name: "form-app",
   data() {
@@ -28,7 +31,7 @@ export default {
   methods: {
     isChecked(value) {
       return this.picked.includes(value)
-    }
+    },
   }
 }
 </script>
@@ -74,5 +77,26 @@ export default {
   .checked {
     font-weight: 700;
     color: #315DFA;
+  }
+  .button__next {
+    width: 186px;
+    height: 45px;
+    background: #315DFA;
+    border: 1px solid #315DFA;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFFFFF;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    --padding-x: 1.2em;
+    margin-top: 13px;
+    margin-left: 67px;
+  }
+  .button__next:hover {
+    background: #355ADF;
+    border: 1px solid #315DFA;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.35);
   }
 </style>

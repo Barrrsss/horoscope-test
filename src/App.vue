@@ -1,16 +1,18 @@
 <template >
   <div class="container" @scroll="onScroll" >
-    <MainApp></MainApp>
+    <HeaderApp />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import MainApp from './components/MainApp.vue'
+import HeaderApp from './components/header-app.vue'
+
 
 export default {
   name: 'App',
   components: {
-    MainApp
+    HeaderApp
   },
   data() {
     return {
