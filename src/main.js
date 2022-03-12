@@ -16,5 +16,5 @@ const store = createStore({
     },
 });
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(router).use(store).mount('#app')
 

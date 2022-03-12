@@ -32,9 +32,6 @@ export default {
       let container = event.target;
       this.scrollPosition = container.scrollTop;
     }
-  },
-  mounted() {
-    console.log(this.$store.state.footer); // this.$store
   }
 }
 </script>
