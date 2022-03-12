@@ -17,7 +17,7 @@ export default {
 <style scoped>
   .main {
     width: 296px;
-    margin: 10px 0 0 17px;
+    margin: 10px 0 0 0;
   }
   .main__header {
     width: 100%;
@@ -35,5 +35,10 @@ export default {
     line-height: 19px;
     color: #343B4D;
     margin: 8px 0 12px 0;
+  }
+  @media screen and (min-width: 750px) and (max-width: 1920px) {
+    .main {
+      width: 623px;
+    }
   }
 </style>

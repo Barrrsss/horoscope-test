@@ -1,29 +1,32 @@
 <template>
-  <div class="progress-bar">
-    <div class="progress-bar_fill"></div>
-  </div>
-  <section class="form">
-    <div class="form__title_background">
-      <p class="form__title">Подскажите, мучает ли Вас бессонница последнее время?</p>
+  <div class="main">
+    <div class="progress-bar">
+      <div class="progress-bar_fill"></div>
     </div>
-    <form class="form__input form__input_time">
-      <div class="radio">
-        <input  type="radio" id="1" value="One" v-model="picked" />
-        <label  :class="{ 'checked': isChecked('One') }" class="form__label" for="1">Да</label>
+    <section class="form">
+      <div class="form__title_background">
+        <p class="form__title">Подскажите, мучает ли Вас бессонница последнее время?</p>
       </div>
-      <div class="radio">
-        <input  type="radio" id="2" value="Two" v-model="picked" />
-        <label :class="{ 'checked': isChecked('Two') }" class="form__label" for="2">Нет</label>
-      </div>
-      <div class="radio">
-        <input  type="radio" id="3" value="Three" v-model="picked" />
-        <label :class="{ 'checked': isChecked('Three') }" class="form__label" for="3">Никогда</label>
-      </div>
-    </form>
-  </section>
-  <button @click="$router.push('four')" class="button__next" type="submit" v-show="picked">
-    Далее
-  </button>
+      <form class="form__input form__input_time">
+        <div class="radio">
+          <input class="form__radio" type="radio" id="1" value="One" v-model="picked" />
+          <label  :class="{ 'checked': isChecked('One') }" class="form__label" for="1">Да</label>
+        </div>
+        <div class="radio">
+          <input class="form__radio"  type="radio" id="2" value="Two" v-model="picked" />
+          <label :class="{ 'checked': isChecked('Two') }" class="form__label" for="2">Нет</label>
+        </div>
+        <div class="radio">
+          <input class="form__radio" type="radio" id="3" value="Three" v-model="picked" />
+          <label :class="{ 'checked': isChecked('Three') }" class="form__label" for="3">Никогда</label>
+        </div>
+      </form>
+    </section>
+    <button @click="clickButton" class="button__next" type="submit" v-show="picked">
+      Далее
+    </button>
+  </div>
+
 </template>
 
 
@@ -39,6 +42,10 @@ export default {
     }
   },
   methods: {
+    clickButton() {
+      this.$store.state.footer = false;
+      this.$router.push('four');
+    },
     isChecked(value) {
       return this.picked.includes(value)
     },
@@ -47,6 +54,12 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .radio {
   margin: 30px 0 0 17px;
 }
@@ -85,6 +98,7 @@ export default {
 }
 
 .form__label {
+  cursor: pointer;
   margin-left: 5px;
   font-weight: 400;
   font-size: 14px;
@@ -109,9 +123,9 @@ export default {
   align-items: center;
   --padding-x: 1.2em;
   margin-top: 13px;
-  margin-left: 67px;
 }
 .button__next:hover {
+  cursor: pointer;
   background: #355ADF;
   border: 1px solid #315DFA;
   box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.35);
@@ -128,5 +142,8 @@ export default {
   width: 67px;
   height: 8px;
   background: #B53E42;
+}
+.form__radio {
+  cursor: pointer;
 }
 </style>

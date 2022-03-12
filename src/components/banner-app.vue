@@ -16,7 +16,7 @@ export default {
   width: 287px;
   height: 158px;
   position: relative;
-  margin: 11px 0 0 16px;
+  margin: 11px 0 0 0;
 }
 .lead__zodiac {
   width: 146px;
@@ -30,6 +30,21 @@ export default {
   position: absolute;
   z-index: -1;
 }
+@media screen and (min-width: 750px) and (max-width: 1920px) {
+  .lead {
+    width: 623px;
+    height: 344px;
+  }
+  .lead__zodiac {
+    width: 315px;
+    height: 348px;
+  }
+  .lead__background {
+    width: 623px;
+    height: 344px;
+  }
+}
+
 @keyframes rotate {
   0% {transform: rotate(30deg)}
   50% {transform: rotate(calc(30deg * -1))}

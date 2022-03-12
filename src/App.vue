@@ -1,30 +1,40 @@
-<template >
-  <div class="container" @scroll="onScroll" >
+<template>
+  <div class="container" @scroll="onScroll">
     <HeaderApp />
     <router-view></router-view>
+    <FooterApp />
   </div>
 </template>
 
 <script>
-import HeaderApp from './components/header-app.vue'
+
+import HeaderApp from './components/header-app'
+import FooterApp from './components/footer-app'
 
 
 export default {
   name: 'App',
+  props: [ 'posts' ],
   components: {
-    HeaderApp
+    HeaderApp,
+    FooterApp
   },
   data() {
     return {
-      scrollPosition: 0
+      scrollPosition: 0,
+      footer: false
     }
   },
   methods: {
+
     onScroll(event) {
-      console.log(1);
+      this.$store.state.footer = true;
       let container = event.target;
       this.scrollPosition = container.scrollTop;
     }
+  },
+  mounted() {
+    console.log(this.$store.state.footer); // this.$store
   }
 }
 </script>
@@ -41,7 +51,6 @@ export default {
 
 body {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -53,8 +62,10 @@ body {
 
 .container {
   height: 100vh;
-  overflow-y: scroll;
+  min-height: 100%;
   overflow-x: hidden;
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 </style>
